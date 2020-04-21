@@ -112,6 +112,7 @@ class AmiBuilder(object):
           SecurityGroupIds=self._security_group_ids)
 
         # Find the newly created EC2
+        time.sleep(30)
         self._instance = None
         for r in self._ec2.describe_instances()['Reservations']:
             if r['ReservationId'] == reservation['ReservationId']:
